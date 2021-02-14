@@ -23,9 +23,8 @@ jobs:
       DB_ClusterUri: ${{ secrets.TEST_PROD_DBCLUSTERURI }}
       DB_Name: ${{ secrets.TEST_DB_NAME }}
       BASE_URL: ${{ secrets.TEST_BASE_URL }}
-jobs:  
-  needs: test
-  deploy:
+  deploy:  
+    needs: test
     runs-on: ubuntu-latest
     strategy:
       matrix:
