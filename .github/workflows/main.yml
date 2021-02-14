@@ -19,8 +19,8 @@ jobs:
     - run: npm test
     env:
       DB_Username: ${{ secrets.TEST_DB_USERNAME }}
-      DB_Password: ${{ secrets.TEST_PROD_PASSWORD }}
-      DB_ClusterUri: ${{ secrets.TEST_PROD_DBCLUSTERURI }}
+      DB_Password: ${{ secrets.TEST_PASSWORD }}
+      DB_ClusterUri: ${{ secrets.TEST_DB_CLUSTERURI }}
       DB_Name: ${{ secrets.TEST_DB_NAME }}
       BASE_URL: ${{ secrets.TEST_BASE_URL }}
   deploy:  
@@ -42,7 +42,7 @@ jobs:
     env:
       DB_Username: ${{ secrets.PROD_DB_USERNAME }}
       DB_Password: ${{ secrets.PROD_PASSWORD }}
-      DB_ClusterUri: ${{ secrets.PROD_DBCLUSTERURI }}
+      DB_ClusterUri: ${{ secrets.PROD_DB_CLUSTERURI }}
       DB_Name: ${{ secrets.PROD_DB_NAME }}
       BASE_URL: ${{ secrets.PROD_BASE_URL }}
 
