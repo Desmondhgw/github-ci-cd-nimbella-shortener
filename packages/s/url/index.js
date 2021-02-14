@@ -12,7 +12,6 @@ const Url = mongoose.model('urls',{             //Creating URL Model
   short_url: { type: String }, 
   actual_url: { type: String } 
 }); 
-console.log(process.env)
 afterAll(() => mongoose.disconnect());
 
 mongoose.connect(DATABASEURI, {                 //Establishing connection with MongoDB
