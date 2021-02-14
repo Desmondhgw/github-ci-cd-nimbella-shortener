@@ -1,0 +1,49 @@
+name: Workflow for Main Branch 
+on:
+  push:
+    branches: [ main ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    
+    - run: npm install
+    - run: npm test
+     env:
+      DB_Username: ${{ secrets.TEST_DB_USERNAME }}
+      DB_Password: ${{ secrets.TEST_PROD_PASSWORD }}
+      DB_ClusterUri: ${{ secrets.TEST_PROD_DBCLUSTERURI }}
+      DB_Name: ${{ secrets.TEST_DB_NAME }}
+      BASE_URL: ${{ secrets.TEST_BASE_URL }}
+jobs:  
+  needs: test
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}    
+    - run: npm install
+    - run: npm install -g https://apigcp.nimbella.io/downloads/nim/nimbella-cli.tgz
+    - run: nim auth login ${{ secrets.DEPLOYER_LOGIN_TOKEN }}
+    - run: nim project deploy .
+    env:
+      DB_Username: ${{ secrets.PROD_DB_USERNAME }}
+      DB_Password: ${{ secrets.PROD_PASSWORD }}
+      DB_ClusterUri: ${{ secrets.PROD_DBCLUSTERURI }}
+      DB_Name: ${{ secrets.PROD_DB_NAME }}
+      BASE_URL: ${{ secrets.PROD_BASE_URL }}
+
