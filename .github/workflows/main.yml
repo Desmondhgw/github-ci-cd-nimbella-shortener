@@ -19,7 +19,7 @@ jobs:
     - run: npm test
     env:
       DB_Username: ${{ secrets.TEST_DB_USERNAME }}
-      DB_Password: ${{ secrets.TEST_PASSWORD }}
+      DB_Password: ${{ secrets.TEST_DB_PASSWORD }}
       DB_ClusterUri: ${{ secrets.TEST_DB_CLUSTERURI }}
       DB_Name: ${{ secrets.TEST_DB_NAME }}
       BASE_URL: ${{ secrets.TEST_BASE_URL }}
