@@ -17,7 +17,7 @@ jobs:
     
     - run: npm install
     - run: npm test
-     env:
+    env:
       DB_Username: ${{ secrets.TEST_DB_USERNAME }}
       DB_Password: ${{ secrets.TEST_PROD_PASSWORD }}
       DB_ClusterUri: ${{ secrets.TEST_PROD_DBCLUSTERURI }}
