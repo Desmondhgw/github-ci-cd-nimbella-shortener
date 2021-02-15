@@ -8,6 +8,8 @@ const DB_ClusterUri=process.env.DB_ClusterUri
 const DATABASEURI = `mongodb+srv://${DB_Username}:${DB_Password}@${DB_ClusterUri}/${DB_Name}?retryWrites=true&w=majority` //DB URI
 mongoose.Promise = global.Promise;
 
+afterAll(() => mongoose.disconnect());
+
 const Url = mongoose.model('urls',{             //Creating URL Model
   short_url: { type: String }, 
   actual_url: { type: String } 
