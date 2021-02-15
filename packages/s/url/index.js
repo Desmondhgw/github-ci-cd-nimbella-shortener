@@ -16,7 +16,7 @@ const Url = mongoose.model('urls',{             //Creating URL Model
 }); 
 
 
-mongoose.connect(DATABASEURI, {                 //Establishing connection with MongoDB
+async await =>mongoose.connect(DATABASEURI, {                 //Establishing connection with MongoDB
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }).then(() => console.log("connected to mongo database"))
