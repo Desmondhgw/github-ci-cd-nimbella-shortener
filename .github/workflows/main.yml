@@ -41,7 +41,7 @@ jobs:
     - run: nim project deploy .
     env:
       DB_Username: ${{ secrets.PROD_DB_USERNAME }}
-      DB_Password: ${{ secrets.PROD_PASSWORD }}
+      DB_Password: ${{ secrets.PROD_DB_PASSWORD }}
       DB_ClusterUri: ${{ secrets.PROD_DB_CLUSTERURI }}
       DB_Name: ${{ secrets.PROD_DB_NAME }}
       BASE_URL: ${{ secrets.PROD_BASE_URL }}
