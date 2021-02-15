@@ -82,12 +82,7 @@ async function main(args)                       //Main function to return respon
 }
 
 
-process.on("SIGINT", () => {
-  mongoose.connection.close(() => {
-   logger.info("Mongoose default connection disconnected through app termination");
-   process.exit(0);
-  });
- });
+afterAll(() => mongoose.connection.close)
 
 
 module.exports = { main }
