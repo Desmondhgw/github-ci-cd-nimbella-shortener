@@ -7,6 +7,7 @@ describe("Validates Response when URL Shortner is Requested", () => {
         "https://nimbella.com/blog/how-to-deploy-node-js-functions-on-nimbella",
     };
     var appResponse = await app.main(requestBody);
+    console.log(appResponse)
     expect(appResponse.body.success).toBe(true);
   });
 });
