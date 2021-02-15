@@ -76,7 +76,7 @@ async function main(args)                       //Main function to return respon
       }        
       }     
   } catch (e) {
-    response.body={"message":"Exception has occured while processing","exception":e,"E":e.message,"success":false}
+    response.body={"message":"Exception has occured while processing","exception":process.env,"E":e.message,"success":false}
     response.statusCode= 400   
   } 
   return response  
