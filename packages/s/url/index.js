@@ -16,7 +16,7 @@ const Url = mongoose.model('urls',{             //Creating URL Model
 }); 
 
 
-async ()=>mongoose.connect(DATABASEURI, {                 //Establishing connection with MongoDB
+mongoose.connect(DATABASEURI, {                 //Establishing connection with MongoDB
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }).then(() => console.log("connected to mongo database"))
@@ -88,5 +88,6 @@ process.on("SIGINT", () => {
    process.exit(0);
   });
  });
- 
+
+
 module.exports = { main }
