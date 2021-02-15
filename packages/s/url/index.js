@@ -62,7 +62,7 @@ async function main(args)                       //Main function to return respon
       }) 
         
       insertionResponse=await url.save()      //inserrting the URL into DB
-      await mongoose.connection.close
+     
       console.log(insertionResponse)
       if(insertionResponse.actual_url)
       {
@@ -81,4 +81,12 @@ async function main(args)                       //Main function to return respon
   return response  
 }
 
+
+process.on("SIGINT", () => {
+  mongoose.connection.close(() => {
+   logger.info("Mongoose default connection disconnected through app termination");
+   process.exit(0);
+  });
+ });
+ 
 module.exports = { main }
