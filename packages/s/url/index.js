@@ -53,6 +53,7 @@ async function main(args)                       //Main function to return respon
          console.log(process.env.BASE_URL)
          console.log(process.env.DB_Name)
           response.body={"message":"short url has been created already","success":true,"short_url":process.env.BASE_URL+"/"+result.short_url};              
+          response.statusCode= 200 
        }
        else
        {
@@ -82,7 +83,6 @@ async function main(args)                       //Main function to return respon
 }
 
 
-afterAll(() => mongoose.connection.close)
 
 
 module.exports = { main }
