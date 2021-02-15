@@ -11,4 +11,3 @@ describe("Validates Response when URL Shortner is Requested", () => {
   });
 });
 
-afterAll(()=>{ mongoose.connection.close();});

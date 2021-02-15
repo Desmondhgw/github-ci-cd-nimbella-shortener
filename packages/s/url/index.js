@@ -16,7 +16,7 @@ const Url = mongoose.model('urls',{             //Creating URL Model
 }); 
 
 
-mongoose.connect(DATABASEURI, {                 //Establishing connection with MongoDB
+async ()=>mongoose.connect(DATABASEURI, {                 //Establishing connection with MongoDB
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }).then(() => console.log("connected to mongo database"))
@@ -62,6 +62,7 @@ async function main(args)                       //Main function to return respon
       }) 
         
       insertionResponse=await url.save()      //inserrting the URL into DB
+      await mongoose.connection.close
       console.log(insertionResponse)
       if(insertionResponse.actual_url)
       {
