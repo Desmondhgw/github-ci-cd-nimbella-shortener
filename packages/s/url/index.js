@@ -50,8 +50,6 @@ async function main(args)                       //Main function to return respon
        result=  await Url.findOne({ actual_url:args.actual_url });          //Checks whether the URL to shorten exists already in DB
        if(result)
        {
-         console.log(process.env.BASE_URL)
-         console.log(process.env.DB_Name)
           response.body={"message":"short url has been created already","success":true,"short_url":process.env.BASE_URL+"/"+result.short_url};              
           response.statusCode= 200 
        }
@@ -76,7 +74,7 @@ async function main(args)                       //Main function to return respon
       }        
       }     
   } catch (e) {
-    response.body={"message":"Exception has occured while processing","exception":process.env,"E":e.message,"success":false}
+    response.body={"message":"Exception has occured while processing","exception":e.message,"success":false}
     response.statusCode= 400   
   } 
   return response  
