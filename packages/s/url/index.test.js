@@ -1,4 +1,5 @@
 const app = require("./index");
+import { Connection } from 'mongoose';
 
 describe("Validates Response when URL Shortner is Requested", () => {
   test("Validates Response URL shortner for Positive flow", async () => {
@@ -10,3 +11,5 @@ describe("Validates Response when URL Shortner is Requested", () => {
     expect(appResponse.body.success).toBe(true);
   });
 });
+
+afterAll(() => mongoose.disconnect());
