@@ -1,4 +1,4 @@
-name: Workflow for Main Branch 
+name: Workflow for URL Shortner App 
 on:
   push:
     branches: [ main ]
