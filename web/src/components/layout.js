@@ -4,7 +4,7 @@ import axios from 'axios';
 class Shortner extends Component {
    
   componentDidMount() {
-    document.title = 'URL Shortner';
+    document.title = 'URL Shortener';
   }
       state = {
         actual_url: null,

@@ -1,5 +1,5 @@
 name: Workflow for URL Shortner App
-on:                        #GitHub Action That Triggers the Flow
+on:                              #GitHub Action That Triggers the Flow
   push:
     branches: [main]
 jobs:                             #WorkFlow Run is made up of Jobs
